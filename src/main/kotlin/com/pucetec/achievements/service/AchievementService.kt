@@ -6,9 +6,12 @@ import org.springframework.stereotype.Service
 
 @Service
 class AchievementService(
-    private val repository: AchievementRepository) {
-
-    fun findAll(): List<Achievement> = repository.findAll()
-
-    fun save(achievement: Achievement): Achievement = repository.save(achievement)
+    private val repository: AchievementRepository
+) {
+    fun findAll(): List<Achievement> {
+        return repository.findAll()
+    }
+    fun save(achievement: Achievement): Achievement {
+        return repository.save(achievement)
+    }
 }

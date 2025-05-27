@@ -2,15 +2,20 @@ package com.pucetec.achievements.controllers
 
 import com.pucetec.achievements.models.entities.Achievement
 import com.pucetec.achievements.service.AchievementService
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 
 @RestController
 @RequestMapping("/api/achievements")
-class AchievementController(private val service: AchievementService) {
-
+class AchievementController(
+    private val service: AchievementService
+) {
     @GetMapping
-    fun getAll(): List<Achievement> = service.findAll()
+    fun findAll(): List<Achievement> = service.findAll()
 
     @PostMapping
-    fun create(@RequestBody achievement: Achievement): Achievement = service.save(achievement)
+    fun save(@RequestBody achievement: Achievement): Achievement = service.save(achievement)
 }
